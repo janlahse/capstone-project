@@ -5,7 +5,7 @@ import PetNav from "@/components/PetNav";
 import PetForm from "@/components/PetForm";
 import styled from "styled-components";
 import { useState } from "react";
-import Logo from "@/components/Logo";
+import PetHeader from "@/components/PetHeader";
 
 export default function PetDetails() {
   const router = useRouter();
@@ -71,13 +71,9 @@ export default function PetDetails() {
 
   return (
     <>
-      <Container>
-      <StyledHeader>
-        <Logo />
-        <PetName>{pet.details.name}</PetName>
-      </StyledHeader>
+      <PetHeader name={pet.details.name} />
 
-      <StyledHeading>Details</StyledHeading>
+      <Container>
         <StyledWrapperFirstDetails>
           <PetDisplay
             appearance={pet.appearance}
@@ -152,35 +148,9 @@ export default function PetDetails() {
     </>
   );
 }
+
 const Container = styled.section`
-  padding: 24px;
-`;
-
-const StyledHeader = styled.header`
-  position: relative;
-  padding: 15px 20px;
-  width: 100%;
-  max-width: 600px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-const PetName = styled.h2`
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  margin: 0;
-  font-size: 1.5rem;
-`;
-
-const StyledHeading = styled.h1`
-  text-align: center;
-  font-size: 1.75rem;
-  width: 100px;
-  margin: 1em auto;
-  padding-bottom: 0.4rem;
-  border-bottom: 3px solid #5885da;
+  padding:  0 24px 0 ;
 `;
 
 const StyledWrapperFirstDetails = styled.section`
